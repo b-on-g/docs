@@ -307,3 +307,17 @@
 - Follows the same data pattern as lessons 1-10 in the `lessons()` array.
 - Accessible via `#!page=guide&lesson=11`.
 - All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
+
+---
+
+### TASK-011: Playground — preset-примеры (Hello World, Counter, Todo List)
+**Date**: 2026-03-07
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added three preset example buttons (Hello World, Counter, Todo List) to the Playground page tools area. Each button loads a corresponding view.tree code snippet into the editor via `@$mol_action` click handlers. Hello World shows a basic `$mol_view` with text. Counter shows a `$mol_page` with `$mol_number` input and Reset button. Todo List shows a `$mol_page` with `$mol_string` input, Add button, and `$mol_list`. Buttons use `$mol_button_minor` in the `tools /` section. Build passes, Audit passed.
+**Files changed**: play/play.view.tree, play/play.view.ts, tasks.json, progress.md
+**Notes**:
+- Preset buttons placed in `tools /` of `$mol_page` — appears in the page header toolbar.
+- Click handlers use `@$mol_action` to write the preset code to the `source` reactive atom.
+- All `$`-prefixed identifiers in preset strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
+- Default source is Hello World preset (loaded on first visit).
