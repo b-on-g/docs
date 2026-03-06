@@ -321,3 +321,17 @@
 - Click handlers use `@$mol_action` to write the preset code to the `source` reactive atom.
 - All `$`-prefixed identifiers in preset strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
 - Default source is Hello World preset (loaded on first visit).
+
+---
+
+### TASK-029: Landing page — Live Demo секция (интерактивный пример)
+**Date**: 2026-03-07
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added Live Demo section to the Landing page between Value Props and Ecosystem sections. Uses the shared `$bog_docs_editor` component for an interactive editor+preview experience. Default code shows a Counter example (`$mol_page` with `$mol_number` and `$mol_button_major`). Section has a title "Try It Live", subtitle, and the editor is styled with border, padding, and max-width constraint. Code is editable — users can modify view.tree and see transpiled JS output in real time. Build passes, Audit passed.
+**Files changed**: landing/landing.view.tree, landing/landing.view.ts (new), landing/landing.view.css.ts, tasks.json, progress.md
+**Notes**:
+- Reuses `$bog_docs_editor` component — no code duplication for transpilation.
+- `landing.view.ts` uses `const d = '$'` prefix trick to prevent MAM from resolving `$mol_*` identifiers in demo code strings.
+- Demo section centered with max-width 800px for readability on wide screens.
+- Counter preset chosen over Hello World to showcase more framework features (reactive bindings, buttons).
