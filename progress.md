@@ -149,3 +149,16 @@
 - `hints` property added to lesson.view.tree (`hints /string`) so it can be set from the parent guide component. Previous `hints()` method in lesson.view.ts (returning empty array) removed since view.tree now provides the default.
 - Lesson switching via URL: `#!page=guide&lesson=2` shows lesson 2. Default is lesson 1. Full navigation (sidebar, prev/next) deferred to TASK-016.
 - Lesson 1 now also has a solution set (was missing — `$my_hello $mol_view` with `\Hello World!`), enabling the Check button to work for lesson 1 too.
+
+---
+
+### TASK-019: Контент урока 3: Bindings (<=, <=>, =>)
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added lesson 3 content covering bindings — one-way (`<=`), two-way (`<=>`), and output (`=>`) bindings with examples. Explanation covers all three binding types with clear code examples showing component property connections. Task asks user to create a form with a `$mol_string` input using two-way binding `<=>` to a `name` property, and a `$mol_view` greeting that reads `name` via `<=`. Initial code provides the skeleton without bindings. Solution adds `value? <=> name? \` and `sub / <= name`. Three hints guide the user progressively. Build passes, Audit passed.
+**Files changed**: guide/guide.view.ts, tasks.json, progress.md
+**Notes**:
+- Follows the same pattern as lessons 1 and 2 — data object in `lessons()` array with title, explanation, task, initial_code, solution, hints.
+- All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
+- Accessible via `#!page=guide&lesson=3`.
