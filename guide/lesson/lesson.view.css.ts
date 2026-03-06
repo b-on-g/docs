@@ -39,6 +39,22 @@ namespace $.$$ {
 			flex: {
 				wrap: 'wrap',
 			},
+			align: {
+				items: 'center',
+			},
+		},
+
+		Check_success: {
+			color: '#388e3c',
+			font: {
+				weight: 'bold',
+			},
+		},
+
+		Check_error: {
+			font: {
+				weight: 'bold',
+			},
 		},
 
 	} )

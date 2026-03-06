@@ -108,3 +108,16 @@
 - `hints()` method returns empty array by default — will be populated by TASK-015.
 - Check/Hint/Solution click handlers are stubs (declared in view.tree as `<=> check? null` etc.) — logic will be implemented in TASK-014 and TASK-015.
 - `Next_button` is a `$mol_link` with configurable `arg` for navigation — will be wired by TASK-016.
+
+---
+
+### TASK-014: Lesson — кнопка Check с валидацией ответа через tree-парсинг
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Implemented Check button validation using structural tree comparison. When user clicks Check, both user code and solution are parsed via `$mol_tree2_from_string` into AST trees, then compared recursively (type, value, kids) ignoring positional span data. On correct answer, "Correct!" message appears styled in green (#388e3c). On incorrect answer, "Try again" message appears. Parse errors are caught and treated as incorrect. Added `check_status` reactive state ('', 'success', 'error'), `check_result_sub` dynamic list that shows Check_success or Check_error sub-components, and `trees_equal` recursive structural comparison method. Check handler uses `@$mol_action` for safe atom writes.
+**Files changed**: guide/lesson/lesson.view.tree, guide/lesson/lesson.view.ts, guide/lesson/lesson.view.css.ts
+**Notes**:
+- `Check_success` and `Check_error` are declared as class-level sub-components in view.tree, dynamically included via `check_result_sub` override.
+- `trees_equal` compares `type`, `value`, and `kids` recursively — structural comparison that ignores whitespace/indentation differences (since parser normalizes them).
+- `@$mol_action` on `check()` override allows safe writes to `check_status` atom without circular subscription issues.
