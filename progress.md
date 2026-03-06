@@ -379,3 +379,19 @@
 - Sub-component border can combine `style`, `width`, `color`, and `radius` in a single `border` object.
 - Progress indicator uses `$mol_link` with `arg *` for prev/next navigation (lesson number in URL hash).
 - Prev/Next links use ‹/› characters. At first/last lesson, links point to boundary (no wrap-around).
+
+---
+
+### TASK-034: Guide — сохранение прогресса пользователя в localStorage
+**Date**: 2026-03-07
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added localStorage persistence for user progress in the Guide. Completed lessons are saved via `$mol_state_local` when Check passes (`bog_docs_done_N` keys). User code per lesson is persisted on every edit (`bog_docs_code_N` keys). Both are restored on page reload — completed lessons show "Correct!" indicator, user code is preserved. Added `lesson_id` property to lesson component for keying localStorage entries. Progress text updated to show completed count: `3 / 11 (5 done)`. Added Reset button in Guide tools that clears all localStorage entries for code and completion. Build passes, Audit passed.
+**Files changed**: guide/lesson/lesson.view.tree, guide/lesson/lesson.view.ts, guide/guide.view.tree, guide/guide.view.ts, tasks.json, progress.md
+**Notes**:
+- `$mol_state_local.value(key)` is reactive — reading it inside `@$mol_mem` creates a dependency. When localStorage changes (e.g., on reset), dependent atoms recompute automatically.
+- `lesson_id` is set from the guide as the string lesson index (e.g., "0", "1", ...). Used as part of localStorage keys.
+- `check_status()` persists 'success' to localStorage on correct answer. On lesson load, reads from localStorage and returns 'success' if previously completed.
+- `code()` persists to localStorage on every edit. On lesson load, reads saved code or falls back to `initial_code()`.
+- Reset clears all `bog_docs_code_N` and `bog_docs_done_N` keys via `$mol_state_local.value(key, null)` which calls `localStorage.removeItem(key)`.
+- The `completed_count()` method in guide iterates all lessons and counts those with `bog_docs_done_N` set in localStorage.

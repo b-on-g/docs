@@ -4,12 +4,27 @@ namespace $.$$ {
 
 		@$mol_mem
 		override code( next?: string ) {
-			return next ?? this.initial_code()
+			const id = this.lesson_id()
+			const key = 'bog_docs_code_' + id
+			if ( next !== undefined ) {
+				this.$.$mol_state_local.value( key, next )
+				return next
+			}
+			const saved = this.$.$mol_state_local.value( key ) as string | null
+			return saved ?? this.initial_code()
 		}
 
 		@$mol_mem
 		check_status( next?: string ) {
-			return next ?? ''
+			const id = this.lesson_id()
+			if ( next !== undefined ) {
+				if ( next === 'success' ) {
+					this.$.$mol_state_local.value( 'bog_docs_done_' + id, true )
+				}
+				return next
+			}
+			const done = this.$.$mol_state_local.value( 'bog_docs_done_' + id )
+			return done ? 'success' : ''
 		}
 
 		@$mol_mem

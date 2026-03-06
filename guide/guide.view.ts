@@ -40,8 +40,31 @@ namespace $.$$ {
 			return obj
 		}
 
+		override current_lesson_id() {
+			return String( this.lesson_index() )
+		}
+
+		completed_count() {
+			let count = 0
+			for ( let i = 0; i < this.lessons().length; i++ ) {
+				if ( this.$.$mol_state_local.value( 'bog_docs_done_' + i ) ) count++
+			}
+			return count
+		}
+
 		override progress_text() {
-			return `${ this.lesson_index() + 1 } / ${ this.lessons().length }`
+			const done = this.completed_count()
+			return `${ this.lesson_index() + 1 } / ${ this.lessons().length } (${ done } done)`
+		}
+
+		@$mol_action
+		override reset_progress( next?: any ) {
+			const count = this.lessons().length
+			for ( let i = 0; i < count; i++ ) {
+				this.$.$mol_state_local.value( 'bog_docs_code_' + i, null )
+				this.$.$mol_state_local.value( 'bog_docs_done_' + i, null )
+			}
+			return null
 		}
 
 		@$mol_mem
