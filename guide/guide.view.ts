@@ -5,7 +5,7 @@ namespace $.$$ {
 		@$mol_mem
 		lesson_index() {
 			const arg = this.$.$mol_state_arg.value( 'lesson' )
-			if ( arg ) return Math.max( 0, parseInt( arg ) - 1 )
+			if ( arg ) return Math.max( 0, Math.min( parseInt( arg ) - 1, this.lessons().length - 1 ) )
 			return 0
 		}
 
@@ -38,6 +38,25 @@ namespace $.$$ {
 			const obj = super.Current_lesson()
 			obj.hints = () => this.current_lesson_data().hints
 			return obj
+		}
+
+		override progress_text() {
+			return `${ this.lesson_index() + 1 } / ${ this.lessons().length }`
+		}
+
+		@$mol_mem
+		override prev_arg() {
+			const idx = this.lesson_index()
+			if ( idx <= 0 ) return { lesson: '1' }
+			return { lesson: String( idx ) }
+		}
+
+		@$mol_mem
+		override next_arg() {
+			const idx = this.lesson_index()
+			const max = this.lessons().length
+			if ( idx >= max - 1 ) return { lesson: String( max ) }
+			return { lesson: String( idx + 2 ) }
 		}
 
 		lessons() {

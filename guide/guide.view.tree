@@ -1,5 +1,16 @@
 $bog_docs_guide $mol_page
 	title \Docs
+	tools /
+		<= Prev_link $mol_link
+			arg <= prev_arg *
+			sub /
+				\‹
+		<= Progress $mol_view
+			sub / <= progress_text \
+		<= Next_link $mol_link
+			arg <= next_arg *
+			sub /
+				\›
 	body /
 		<= Current_lesson $bog_docs_guide_lesson
 			lesson_title <= current_title \

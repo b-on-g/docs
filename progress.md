@@ -365,3 +365,17 @@
 - `location.hash` is read directly (not via `$mol_state_arg`) to avoid creating a reactive dependency that would reset user edits.
 - URL-safe base64: `+`→`-`, `/`→`_`, trailing `=` removed. Reversed on decode.
 - UTF-8 handling via `TextEncoder`/`TextDecoder` for Unicode characters in code.
+
+---
+
+### TASK-032: Guide — стилизация lesson component (приятный UX)
+**Date**: 2026-03-07
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Styled the lesson component for clear visual separation and better UX. Explanation section gets card background with padding and rounded corners. Code_editor gets a bordered container with rounded corners. Task_section gets card background, padding, and rounded corners. Actions area has a top border separator. Check_success shows green text with green-tinted background pill. Check_error shows red text with red-tinted background pill. Next_button styled with control color and bold font. Added progress indicator to Guide page: "X / Y" lesson counter in tools area with Prev/Next navigation links (‹/›). Created guide.view.css.ts with Progress text styling and nav link sizing. Build passes, Audit passed.
+**Files changed**: guide/lesson/lesson.view.css.ts, guide/guide.view.tree, guide/guide.view.ts, guide/guide.view.css.ts (new), tasks.json, progress.md
+**Notes**:
+- `borderRadius: $mol_gap.round` fails TypeScript — `$mol_gap.round` is `$mol_style_func<"var", unknown>`, not assignable to `string`. Must use `border: { radius: $mol_gap.round }` instead.
+- Sub-component border can combine `style`, `width`, `color`, and `radius` in a single `border` object.
+- Progress indicator uses `$mol_link` with `arg *` for prev/next navigation (lesson number in URL hash).
+- Prev/Next links use ‹/› characters. At first/last lesson, links point to boundary (no wrap-around).
