@@ -93,3 +93,18 @@
 - Transpilation pipeline: string → tree AST → JS AST → text tree → JS string. All functions are pure transformations available on the `$` namespace.
 - Error handling: `output_text()` wraps `transpiled()` in try/catch, re-throws Promises (async signals) but catches parse/transpile errors and formats them as markdown blockquotes.
 - MAM auto-resolved dependencies: `$mol_tree2_from_string`, `$mol_view_tree2_to_js`, `$mol_tree2_js_to_text`, `$mol_tree2_text_to_string` — all pulled in automatically by MAM's `$`-identifier scanning.
+
+---
+
+### TASK-013: Создать компонент Lesson — layout с explanation, editor, preview, task
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Created the Lesson component at `guide/lesson/` with full layout: explanation section ($mol_text for markdown), editor+preview split view ($mol_textarea + $mol_text showing transpiled JS), and task section with Check/Hint/Solution/Next buttons. Properties declared in view.tree: `lesson_title`, `explanation`, `task_text`, `initial_code`, `solution`, `code` (reactive, initialized from `initial_code`). Preview uses the same transpilation pipeline as Playground ($mol_tree2_from_string → $mol_view_tree2_to_js → $mol_tree2_js_to_text → $mol_tree2_text_to_string). CSS uses flex-wrap for responsive editor/preview split. Guide page updated to render a test lesson. Build passes, Audit passed.
+**Files changed**: guide/lesson/lesson.view.tree, guide/lesson/lesson.view.ts, guide/lesson/lesson.view.css.ts, guide/guide.view.tree
+**Notes**:
+- `initial_code` and `solution` declared as view.tree properties so they're part of the base class and can be overridden by parent components.
+- `code()` in TS override uses `@$mol_mem` with fallback to `initial_code()`.
+- `hints()` method returns empty array by default — will be populated by TASK-015.
+- Check/Hint/Solution click handlers are stubs (declared in view.tree as `<=> check? null` etc.) — logic will be implemented in TASK-014 and TASK-015.
+- `Next_button` is a `$mol_link` with configurable `arg` for navigation — will be wired by TASK-016.
