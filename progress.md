@@ -263,3 +263,17 @@
 - Follows the same data pattern as lessons 1-8 in the `lessons()` array.
 - Accessible via `#!page=guide&lesson=9`.
 - All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
+
+---
+
+### TASK-033: Lesson editor — переиспользование Playground editor/preview компонентов
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Extracted shared editor+preview component `$bog_docs_editor` at `bog/docs/editor/`. Contains `$mol_textarea` code editor + `$mol_text` transpiled JS preview with full transpilation pipeline (`$mol_tree2_from_string` → `$mol_view_tree2_to_js` → `$mol_tree2_js_to_text` → `$mol_tree2_text_to_string`). CSS provides flex-wrap layout (side-by-side on desktop, stacked on mobile). Refactored Playground (`play/`) to use `$bog_docs_editor` — removed duplicated transpilation logic. Refactored Lesson (`guide/lesson/`) to use `$bog_docs_editor` — removed `preview_text()` method and `Code_area`/`Editor`/`Preview` CSS. No code duplication remains. Build passes, Audit passed.
+**Files changed**: editor/editor.view.tree (new), editor/editor.view.ts (new), editor/editor.view.css.ts (new), play/play.view.tree, play/play.view.ts, guide/lesson/lesson.view.tree, guide/lesson/lesson.view.ts, guide/lesson/lesson.view.css.ts, tasks.json, progress.md
+**Notes**:
+- `$bog_docs_editor` exposes `source?` property for code text binding. Both Playground and Lesson bind their code state to it.
+- Transpilation logic lives only in `editor/editor.view.ts` — single source of truth.
+- Editor CSS handles the split-view layout (flex-wrap, 300px basis, grow/shrink).
+- Lesson CSS simplified — only retains Task_section, Actions, Check_success, Check_error styles.

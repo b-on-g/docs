@@ -6,13 +6,8 @@ $bog_docs_guide_lesson $mol_page
 	body /
 		<= Explanation $mol_text
 			text <= explanation \
-		<= Code_area $mol_view
-			sub /
-				<= Editor $mol_textarea
-					hint \Write your view.tree code here...
-					value? <=> code? \
-				<= Preview $mol_text
-					text <= preview_text \
+		<= Code_editor $bog_docs_editor
+			source? <=> code? \
 		<= Task_section $mol_view
 			sub /
 				<= Task_description $mol_text
