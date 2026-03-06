@@ -248,3 +248,18 @@
 - Follows the same data pattern as lessons 1-7 in the `lessons()` array.
 - Accessible via `#!page=guide&lesson=8`.
 - All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
+
+---
+
+### TASK-026: Контент урока 9: State Management ($mol_mem deep)
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added lesson 9 content covering state management in depth — @$mol_mem as getter+setter (writable reactive atoms), derived state (automatic dependency tracking and lazy recomputation), @$mol_action for safe mutations (side-effect isolation), @$mol_mem_key for parameterized/collection state, and the "no store needed" philosophy (component properties = atoms, derived methods = computed, actions = reducers, bindings = wiring). Exercise: create a `$my_counter` extending `$mol_page` with a `$mol_number` input (Count) bound to `count? 0` via `<=>`, and a `$mol_button_major` (Reset_btn) with `click? <=> reset? null` and `title \Reset`. Three progressive hints guide the student. Build passes, Audit passed.
+**Files changed**: guide/guide.view.ts, tasks.json, progress.md
+**Notes**:
+- Explanation covers @$mol_mem (getter+setter pattern with `next?`), derived state, @$mol_action vs @$mol_mem purity rule, @$mol_mem_key for collections, and no-external-store philosophy.
+- Exercise uses view.tree only (compatible with tree-parsing validator).
+- Follows the same data pattern as lessons 1-8 in the `lessons()` array.
+- Accessible via `#!page=guide&lesson=9`.
+- All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
