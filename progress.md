@@ -191,3 +191,16 @@
 - Ecosystem links styled as bordered pills with `$mol_theme.control` text color.
 - Footer links styled with `$mol_theme.shade` for subdued appearance.
 - GitHub URL: https://github.com/hyoo-ru/mam (upstream org).
+
+---
+
+### TASK-022: Контент урока 5: Built-in Components
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added lesson 5 content covering built-in components — $mol_page (layout with title/tools/body), $mol_button_major/$mol_button_minor (primary/secondary buttons), $mol_form (structured form with form_fields/buttons), and $mol_list (virtual list). Exercise: create a `$my_profile` component extending `$mol_page` with title, an Edit button in tools, and a `$mol_form` in body containing two `$mol_string` inputs (Name, Email). Three progressive hints guide the student. Build passes, Audit passed.
+**Files changed**: guide/guide.view.ts, tasks.json, progress.md
+**Notes**:
+- Follows the same data pattern as lessons 1-4 in the `lessons()` array.
+- Accessible via `#!page=guide&lesson=5`.
+- All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
