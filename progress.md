@@ -80,3 +80,16 @@
 - MAM scans .ts files for `$`-prefixed identifiers and tries to resolve them as dependencies. Initial code strings containing `$my_hello` caused build failure ("Root package my not found"). Fixed by constructing the `$` prefix dynamically (`prefix + 'my_hello'`) to prevent MAM dependency resolution.
 - $mol_textarea auto-includes $mol_text_code for syntax highlighting view.
 - Build command: `node -e "process.chdir('/Users/cmyser/code/mam'); require('child_process').execSync('npm exec mam bog/docs/app', {stdio: 'inherit'})"` — workaround for sandbox cd restriction.
+
+---
+
+### TASK-008: Playground — транспиляция view.tree → JS через $mol_view_tree2_to_js
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added reactive view.tree → JS transpilation to the Playground page. Uses the full $mol transpiler pipeline: `$mol_tree2_from_string` → `$mol_view_tree2_to_js` → `$mol_tree2_js_to_text` → `$mol_tree2_text_to_string`. Transpiled JavaScript is displayed below the editor via `$mol_text` as a markdown code block. Parse/transpile errors are caught and displayed inline as formatted error messages without crashing the page. Build passes, Audit passed.
+**Files changed**: play/play.view.tree, play/play.view.ts
+**Notes**:
+- Transpilation pipeline: string → tree AST → JS AST → text tree → JS string. All functions are pure transformations available on the `$` namespace.
+- Error handling: `output_text()` wraps `transpiled()` in try/catch, re-throws Promises (async signals) but catches parse/transpile errors and formats them as markdown blockquotes.
+- MAM auto-resolved dependencies: `$mol_tree2_from_string`, `$mol_view_tree2_to_js`, `$mol_tree2_js_to_text`, `$mol_tree2_text_to_string` — all pulled in automatically by MAM's `$`-identifier scanning.

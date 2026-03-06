@@ -4,3 +4,5 @@ $bog_docs_play $mol_page
 		<= Editor $mol_textarea
 			hint \Write your view.tree code here...
 			value? <=> source? \
+		<= Output $mol_text
+			text <= output_text \
