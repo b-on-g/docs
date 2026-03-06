@@ -87,6 +87,130 @@ namespace $.$$ {
 			},
 		},
 
+		Props: {
+			flex: {
+				wrap: 'wrap',
+			},
+			justify: {
+				content: 'center',
+			},
+			gap: '1.5rem',
+			padding: {
+				top: '2rem',
+				bottom: '3rem',
+				left: '2rem',
+				right: '2rem',
+			},
+		},
+
+		Prop_reactive: {
+			flex: {
+				direction: 'column',
+				basis: '250px',
+				grow: 1,
+				shrink: 1,
+			},
+			maxWidth: '350px',
+			padding: $mol_gap.block,
+			border: {
+				style: 'solid',
+				width: '1px',
+				color: $mol_theme.line,
+				radius: $mol_gap.round,
+			},
+			gap: '0.5rem',
+		},
+
+		Prop_composable: {
+			flex: {
+				direction: 'column',
+				basis: '250px',
+				grow: 1,
+				shrink: 1,
+			},
+			maxWidth: '350px',
+			padding: $mol_gap.block,
+			border: {
+				style: 'solid',
+				width: '1px',
+				color: $mol_theme.line,
+				radius: $mol_gap.round,
+			},
+			gap: '0.5rem',
+		},
+
+		Prop_lightweight: {
+			flex: {
+				direction: 'column',
+				basis: '250px',
+				grow: 1,
+				shrink: 1,
+			},
+			maxWidth: '350px',
+			padding: $mol_gap.block,
+			border: {
+				style: 'solid',
+				width: '1px',
+				color: $mol_theme.line,
+				radius: $mol_gap.round,
+			},
+			gap: '0.5rem',
+		},
+
+		Prop_reactive_icon: {
+			font: {
+				size: '2rem',
+			},
+		},
+
+		Prop_composable_icon: {
+			font: {
+				size: '2rem',
+			},
+		},
+
+		Prop_lightweight_icon: {
+			font: {
+				size: '2rem',
+			},
+		},
+
+		Prop_reactive_title: {
+			font: {
+				size: '1.25rem',
+				weight: 'bold',
+			},
+			color: $mol_theme.text,
+		},
+
+		Prop_composable_title: {
+			font: {
+				size: '1.25rem',
+				weight: 'bold',
+			},
+			color: $mol_theme.text,
+		},
+
+		Prop_lightweight_title: {
+			font: {
+				size: '1.25rem',
+				weight: 'bold',
+			},
+			color: $mol_theme.text,
+		},
+
+		Prop_reactive_text: {
+			color: $mol_theme.shade,
+		},
+
+		Prop_composable_text: {
+			color: $mol_theme.shade,
+		},
+
+		Prop_lightweight_text: {
+			color: $mol_theme.shade,
+		},
+
 	} )
 
 }

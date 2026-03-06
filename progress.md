@@ -121,3 +121,15 @@
 - `Check_success` and `Check_error` are declared as class-level sub-components in view.tree, dynamically included via `check_result_sub` override.
 - `trees_equal` compares `type`, `value`, and `kids` recursively — structural comparison that ignores whitespace/indentation differences (since parser normalizes them).
 - `@$mol_action` on `check()` override allows safe writes to `check_status` atom without circular subscription issues.
+
+---
+
+### TASK-004: Создать Landing page — Value Propositions секция (3 карточки)
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added 3 Value Proposition cards (Reactive, Composable, Lightweight) below the Hero section on the Landing page. Each card has an emoji icon, title, and description text. Cards use flex-wrap layout for responsive behavior — row on desktop, stacking on narrow screens. Cards styled with `$mol_theme.line` borders, `$mol_gap.round` border radius, and `$mol_gap.block` padding. Titles use `$mol_theme.text`, descriptions use `$mol_theme.shade`.
+**Files changed**: landing/landing.view.tree, landing/landing.view.css.ts
+**Notes**:
+- `borderRadius: $mol_gap.round` fails TypeScript — `$mol_gap.round` is a `$mol_style_func<"var", unknown>` not assignable to `string`. Must use `border: { radius: $mol_gap.round }` instead.
+- Cards use `flex: { basis: '250px', grow: 1, shrink: 1 }` with `maxWidth: '350px'` for responsive sizing.

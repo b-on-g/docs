@@ -21,3 +21,38 @@ $bog_docs_landing $mol_page
 								page \play
 							sub /
 								\Playground
+		<= Props $mol_view
+			sub /
+				<= Prop_reactive $mol_view
+					sub /
+						<= Prop_reactive_icon $mol_view
+							sub /
+								\⚡
+						<= Prop_reactive_title $mol_view
+							sub /
+								\Reactive
+						<= Prop_reactive_text $mol_view
+							sub /
+								\Automatic dependency tracking with @$mol_mem. No manual subscriptions, no useEffect — state changes propagate instantly.
+				<= Prop_composable $mol_view
+					sub /
+						<= Prop_composable_icon $mol_view
+							sub /
+								\🧩
+						<= Prop_composable_title $mol_view
+							sub /
+								\Composable
+						<= Prop_composable_text $mol_view
+							sub /
+								\Declarative view.tree syntax for building UIs. Components nest naturally with one-way and two-way bindings.
+				<= Prop_lightweight $mol_view
+					sub /
+						<= Prop_lightweight_icon $mol_view
+							sub /
+								\🪶
+						<= Prop_lightweight_title $mol_view
+							sub /
+								\Lightweight
+						<= Prop_lightweight_text $mol_view
+							sub /
+								\~100KB bundle with routing, state management, and UI components included. 3x smaller than React+Redux.
