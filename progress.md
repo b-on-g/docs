@@ -176,3 +176,18 @@
 - Demonstrates reactive state sharing: two inputs bound to same `text?` property via `<=>`.
 - Follows the same data pattern as lessons 1-3 in the `lessons()` array.
 - Accessible via `#!page=guide&lesson=4`.
+
+---
+
+### TASK-005: Создать Landing page — Ecosystem секция и Footer
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added Ecosystem section with 4 external links (MAM, Giper Baza, Components, Tauri) and Footer with 3 links (GitHub, Docs, Community). Ecosystem links open in new tabs (`target \_blank`) with pill-style borders. Footer has a top border separator and muted link colors. Docs link uses internal routing (`arg * page \guide`). All links use `$mol_link`. Styles use `$mol_theme` tokens — no `as any`, no `rgba()`, no shorthand padding strings. Build passes, Audit passed.
+**Files changed**: landing/landing.view.tree, landing/landing.view.css.ts
+**Notes**:
+- External links use `uri` + `target \_blank` on `$mol_link`.
+- Internal "Docs" link uses `arg * page \guide` for hash-based routing.
+- Ecosystem links styled as bordered pills with `$mol_theme.control` text color.
+- Footer links styled with `$mol_theme.shade` for subdued appearance.
+- GitHub URL: https://github.com/hyoo-ru/mam (upstream org).
