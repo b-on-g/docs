@@ -335,3 +335,18 @@
 - `landing.view.ts` uses `const d = '$'` prefix trick to prevent MAM from resolving `$mol_*` identifiers in demo code strings.
 - Demo section centered with max-width 800px for readability on wide screens.
 - Counter preset chosen over Hello World to showcase more framework features (reactive bindings, buttons).
+
+---
+
+### TASK-031: Навигационный header — лого, ссылки, переключатель языка
+**Date**: 2026-03-07
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added navigation header elements to the $mol_book2_catalog sidebar. Logo is the existing `menu_title \$mol Docs`. Navigation links (Docs, Playground) are provided by the catalog spreads — renamed Guide title to "Docs" for clarity. Added `menu_tools /` with EN/RU language switcher buttons (`$mol_button_minor` with `@$mol_action` click handlers that call `$mol_locale.lang()`). Added `menu_foot /` with GitHub external link (`$mol_link` with `target \_blank`). GitHub link styled with muted color via `$mol_theme.shade`. Language switching stores preference in localStorage via `$mol_state_local`. Header elements visible on all pages via the sidebar (always visible on desktop, accessible from menu on mobile). Build passes, Audit passed.
+**Files changed**: app/app.view.tree, app/app.view.ts, app/app.view.css.ts, guide/guide.view.tree, tasks.json, progress.md
+**Notes**:
+- `menu_tools /` places items in the sidebar header (right of title) — used for EN/RU language buttons.
+- `menu_foot /` places items at the bottom of the sidebar menu — used for GitHub link.
+- `$mol_locale.lang()` reads/writes `$mol_state_local.value('locale')` — persists in localStorage.
+- Guide title changed from "Guide" to "Docs" to match acceptance criteria nav link labels.
+- No custom language switcher component needed — two `$mol_button_minor` buttons with `@$mol_action` handlers suffice.

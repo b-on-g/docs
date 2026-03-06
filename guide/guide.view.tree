@@ -1,5 +1,5 @@
 $bog_docs_guide $mol_page
-	title \Guide
+	title \Docs
 	body /
 		<= Current_lesson $bog_docs_guide_lesson
 			lesson_title <= current_title \
