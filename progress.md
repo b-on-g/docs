@@ -218,3 +218,18 @@
 - Follows the same data pattern as lessons 1-5 in the `lessons()` array.
 - Accessible via `#!page=guide&lesson=6`.
 - All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
+
+---
+
+### TASK-024: Контент урока 7: Lists & Collections (* свойства)
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added lesson 7 content covering lists and collections — `*` dictionary syntax for key-value maps, `Item*` multi-property syntax for keyed component factories, dynamic list population with `@$mol_mem_key`, and virtual scrolling with `$mol_list`. Exercise: create a `$my_nav` component with a `$mol_list` named `Menu` containing `Row*` multi-property `$mol_button_minor` items with parameterized `row_title*`. Three progressive hints guide the student. Build passes, Audit passed.
+**Files changed**: guide/guide.view.ts, tasks.json, progress.md
+**Notes**:
+- Explanation covers both uses of `*`: dictionary values (`dictionary *`) and multi-properties (`<= Row* $mol_view`).
+- Includes TypeScript code examples showing `@$mol_mem_key` generated from `*` properties.
+- Follows the same data pattern as lessons 1-6 in the `lessons()` array.
+- Accessible via `#!page=guide&lesson=7`.
+- All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
