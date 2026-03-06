@@ -211,6 +211,148 @@ namespace $.$$ {
 			color: $mol_theme.shade,
 		},
 
+		Ecosystem: {
+			flex: {
+				direction: 'column',
+			},
+			align: {
+				items: 'center',
+			},
+			padding: {
+				top: '2rem',
+				bottom: '2rem',
+				left: '2rem',
+				right: '2rem',
+			},
+			gap: '1.5rem',
+		},
+
+		Ecosystem_title: {
+			font: {
+				size: '1.5rem',
+				weight: 'bold',
+			},
+			color: $mol_theme.text,
+		},
+
+		Ecosystem_links: {
+			flex: {
+				wrap: 'wrap',
+			},
+			justify: {
+				content: 'center',
+			},
+			gap: '1rem',
+		},
+
+		Link_mam: {
+			padding: {
+				top: '0.5rem',
+				bottom: '0.5rem',
+				left: '1.5rem',
+				right: '1.5rem',
+			},
+			border: {
+				style: 'solid',
+				width: '1px',
+				color: $mol_theme.line,
+				radius: $mol_gap.round,
+			},
+			color: $mol_theme.control,
+		},
+
+		Link_giper: {
+			padding: {
+				top: '0.5rem',
+				bottom: '0.5rem',
+				left: '1.5rem',
+				right: '1.5rem',
+			},
+			border: {
+				style: 'solid',
+				width: '1px',
+				color: $mol_theme.line,
+				radius: $mol_gap.round,
+			},
+			color: $mol_theme.control,
+		},
+
+		Link_components: {
+			padding: {
+				top: '0.5rem',
+				bottom: '0.5rem',
+				left: '1.5rem',
+				right: '1.5rem',
+			},
+			border: {
+				style: 'solid',
+				width: '1px',
+				color: $mol_theme.line,
+				radius: $mol_gap.round,
+			},
+			color: $mol_theme.control,
+		},
+
+		Link_tauri: {
+			padding: {
+				top: '0.5rem',
+				bottom: '0.5rem',
+				left: '1.5rem',
+				right: '1.5rem',
+			},
+			border: {
+				style: 'solid',
+				width: '1px',
+				color: $mol_theme.line,
+				radius: $mol_gap.round,
+			},
+			color: $mol_theme.control,
+		},
+
+		Footer: {
+			flex: {
+				direction: 'column',
+			},
+			align: {
+				items: 'center',
+			},
+			padding: {
+				top: '2rem',
+				bottom: '2rem',
+				left: '2rem',
+				right: '2rem',
+			},
+			border: {
+				top: {
+					style: 'solid',
+					width: '1px',
+					color: $mol_theme.line,
+				},
+			},
+		},
+
+		Footer_links: {
+			gap: '2rem',
+			justify: {
+				content: 'center',
+			},
+			flex: {
+				wrap: 'wrap',
+			},
+		},
+
+		Link_github: {
+			color: $mol_theme.shade,
+		},
+
+		Link_docs: {
+			color: $mol_theme.shade,
+		},
+
+		Link_community: {
+			color: $mol_theme.shade,
+		},
+
 	} )
 
 }
