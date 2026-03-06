@@ -204,3 +204,17 @@
 - Follows the same data pattern as lessons 1-4 in the `lessons()` array.
 - Accessible via `#!page=guide&lesson=5`.
 - All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
+
+---
+
+### TASK-023: Контент урока 6: Styling (view.css.ts)
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added lesson 6 content covering styling — $mol_style_define, view.css.ts file structure, theme tokens ($mol_theme.back/card/text/shade/accent/control/field), spacing tokens ($mol_gap.block/round), styling sub-components by PascalCase property name, and key rules (no `as any`, no `rgba()`, no shorthand strings, camelCase for borderRadius, top-level sub-components only). Exercise: refactor a `$my_card` component from plain text to named sub-components (`Title` and `Description` as `$mol_view`) that can be targeted by `$mol_style_define`. Three progressive hints guide the student. Build passes, Audit passed.
+**Files changed**: guide/guide.view.ts, tasks.json, progress.md
+**Notes**:
+- Exercise uses view.tree (compatible with existing tree-parsing validator). The explanation covers css.ts concepts, while the exercise focuses on creating named sub-components that would be styled.
+- Follows the same data pattern as lessons 1-5 in the `lessons()` array.
+- Accessible via `#!page=guide&lesson=6`.
+- All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
