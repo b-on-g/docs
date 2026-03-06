@@ -56,6 +56,16 @@ $bog_docs_landing $mol_page
 						<= Prop_lightweight_text $mol_view
 							sub /
 								\~100KB bundle with routing, state management, and UI components included. 3x smaller than React+Redux.
+		<= Demo $mol_view
+			sub /
+				<= Demo_title $mol_view
+					sub /
+						\Try It Live
+				<= Demo_subtitle $mol_view
+					sub /
+						\Edit the view.tree code and see the transpiled result instantly
+				<= Demo_editor $bog_docs_editor
+					source? <=> demo_source? \
 		<= Ecosystem $mol_view
 			sub /
 				<= Ecosystem_title $mol_view

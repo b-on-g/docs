@@ -211,6 +211,47 @@ namespace $.$$ {
 			color: $mol_theme.shade,
 		},
 
+		Demo: {
+			flex: {
+				direction: 'column',
+			},
+			align: {
+				items: 'center',
+			},
+			padding: {
+				top: '2rem',
+				bottom: '3rem',
+				left: '2rem',
+				right: '2rem',
+			},
+			gap: '1rem',
+		},
+
+		Demo_title: {
+			font: {
+				size: '1.5rem',
+				weight: 'bold',
+			},
+			color: $mol_theme.text,
+		},
+
+		Demo_subtitle: {
+			color: $mol_theme.shade,
+			textAlign: 'center',
+		},
+
+		Demo_editor: {
+			width: '100%',
+			maxWidth: '800px',
+			border: {
+				style: 'solid',
+				width: '1px',
+				color: $mol_theme.line,
+				radius: $mol_gap.round,
+			},
+			padding: $mol_gap.block,
+		},
+
 		Ecosystem: {
 			flex: {
 				direction: 'column',
