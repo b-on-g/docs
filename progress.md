@@ -133,3 +133,19 @@
 **Notes**:
 - `borderRadius: $mol_gap.round` fails TypeScript — `$mol_gap.round` is a `$mol_style_func<"var", unknown>` not assignable to `string`. Must use `border: { radius: $mol_gap.round }` instead.
 - Cards use `flex: { basis: '250px', grow: 1, shrink: 1 }` with `maxWidth: '350px'` for responsive sizing.
+
+---
+
+### TASK-018: Контент урока 2: view.tree Syntax
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added lesson 2 content covering view.tree syntax — component declaration, nesting with `<=`, and indentation rules. Created `guide.view.ts` with a lessons data array holding both lesson 1 (Setup & First App) and lesson 2 (view.tree Syntax). Each lesson has: title, explanation (markdown), task_text, initial_code, solution, and hints. Guide.view.tree updated to delegate lesson properties through guide-level methods. Lesson.view.tree updated to declare `hints /string` property. Simple URL-based lesson selection via `#!lesson=N` arg. Build passes, Audit passed.
+**Files changed**: guide/guide.view.tree, guide/guide.view.ts (new), guide/lesson/lesson.view.tree, guide/lesson/lesson.view.ts, tasks.json
+**Notes**:
+- Lesson 2 initial_code: simple `$my_app $mol_view` with text, no nesting.
+- Lesson 2 solution: adds `<= Action $mol_button_minor` with `sub / \Click me` nested inside.
+- All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix construction to prevent MAM from resolving them as dependencies.
+- `hints` property added to lesson.view.tree (`hints /string`) so it can be set from the parent guide component. Previous `hints()` method in lesson.view.ts (returning empty array) removed since view.tree now provides the default.
+- Lesson switching via URL: `#!page=guide&lesson=2` shows lesson 2. Default is lesson 1. Full navigation (sidebar, prev/next) deferred to TASK-016.
+- Lesson 1 now also has a solution set (was missing — `$my_hello $mol_view` with `\Hello World!`), enabling the Check button to work for lesson 1 too.

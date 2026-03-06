@@ -8,11 +8,6 @@ namespace $.$$ {
 		}
 
 		@$mol_mem
-		hints() {
-			return [] as readonly string[]
-		}
-
-		@$mol_mem
 		check_status( next?: string ) {
 			return next ?? ''
 		}
