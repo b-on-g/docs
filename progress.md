@@ -67,3 +67,16 @@
 **Notes**:
 - Agent completed work but didn't output RALPH_COMPLETE, causing ralph.sh to count as failure
 - Fixed style errors: `borderRadius` shorthand → `border: { radius }`, `$mol_theme.accent` doesn't exist → `$mol_theme.control`
+
+---
+
+### TASK-007: Создать базовый Playground — textarea редактор view.tree кода
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Created Playground page with $mol_textarea editor for view.tree code. play.view.tree uses $mol_page with $mol_textarea, binding value to `source` property. play.view.ts provides @$mol_mem `source()` method with Hello World initial code ($my_hello $mol_view with "Hello World!" sub). Code persists reactively — switching pages and returning preserves edits. Build passes, Audit passed.
+**Files changed**: play/play.view.tree, play/play.view.ts
+**Notes**:
+- MAM scans .ts files for `$`-prefixed identifiers and tries to resolve them as dependencies. Initial code strings containing `$my_hello` caused build failure ("Root package my not found"). Fixed by constructing the `$` prefix dynamically (`prefix + 'my_hello'`) to prevent MAM dependency resolution.
+- $mol_textarea auto-includes $mol_text_code for syntax highlighting view.
+- Build command: `node -e "process.chdir('/Users/cmyser/code/mam'); require('child_process').execSync('npm exec mam bog/docs/app', {stdio: 'inherit'})"` — workaround for sandbox cd restriction.
