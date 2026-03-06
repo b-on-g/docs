@@ -162,3 +162,17 @@
 - Follows the same pattern as lessons 1 and 2 — data object in `lessons()` array with title, explanation, task, initial_code, solution, hints.
 - All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
 - Accessible via `#!page=guide&lesson=3`.
+
+---
+
+### TASK-020: Контент урока 4: Reactivity (@$mol_mem)
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added lesson 4 content covering reactivity — @$mol_mem decorator, auto-tracking dependencies, lazy evaluation, memoization, and reactive graph. Explanation covers how every view.tree property automatically gets @$mol_mem behavior, what the generated TypeScript looks like, and how reactive state propagation works. Exercise: create a `$my_reactive` component extending `$mol_page` with two `$mol_string` inputs (Input and Mirror) that share the same `text?` reactive property via `<=>`. Typing in one input instantly updates the other, demonstrating reactive auto-tracking. Three progressive hints guide the student. Build passes, Audit passed.
+**Files changed**: guide/guide.view.ts, tasks.json, progress.md
+**Notes**:
+- Exercise uses view.tree syntax (compatible with existing tree-parsing validator in lesson component).
+- Demonstrates reactive state sharing: two inputs bound to same `text?` property via `<=>`.
+- Follows the same data pattern as lessons 1-3 in the `lessons()` array.
+- Accessible via `#!page=guide&lesson=4`.
