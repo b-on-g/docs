@@ -292,3 +292,18 @@
 - Follows the same data pattern as lessons 1-9 in the `lessons()` array.
 - Accessible via `#!page=guide&lesson=10`.
 - All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
+
+---
+
+### TASK-028: Контент урока 11: Project Architecture (namespace, meta.tree)
+**Date**: 2026-03-07
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added lesson 11 content covering project architecture — namespace→folder mapping ($my_app → my/app/), underscore rules (no underscores in folder names), module file structure (view.tree/view.ts/view.css.ts/test.ts), meta.tree for explicit includes, index.html entry point with mol_view_root, and build commands from repo root. Exercise: create a `$my_blog` extending `$mol_page` with a `$mol_list` named Posts containing `Post*` multi-property `$mol_view` items with `post_title*`. Three progressive hints guide the student. Build passes, Audit passed.
+**Files changed**: guide/guide.view.ts, tasks.json, progress.md
+**Notes**:
+- Explanation covers namespace=folder path, underscore=directory separator, no underscores in folder names, module file naming, meta.tree includes, index.html mol_view_root, and build from root.
+- Exercise uses view.tree only (compatible with tree-parsing validator).
+- Follows the same data pattern as lessons 1-10 in the `lessons()` array.
+- Accessible via `#!page=guide&lesson=11`.
+- All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
