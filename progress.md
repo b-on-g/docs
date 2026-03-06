@@ -350,3 +350,18 @@
 - `$mol_locale.lang()` reads/writes `$mol_state_local.value('locale')` — persists in localStorage.
 - Guide title changed from "Guide" to "Docs" to match acceptance criteria nav link labels.
 - No custom language switcher component needed — two `$mol_button_minor` buttons with `@$mol_action` handlers suffice.
+
+---
+
+### TASK-012: Playground — sharing кода через URL query params
+**Date**: 2026-03-07
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added Share button to the Playground page. Clicking Share encodes the current view.tree source code as URL-safe base64 and copies a shareable URL to the clipboard via `navigator.clipboard.writeText()`. Opening a URL with `#!page=play&code=ENCODED` decodes the base64 and loads the code into the editor. Encoding uses `TextEncoder`/`TextDecoder` for proper UTF-8 support, with URL-safe base64 substitutions (`+`→`-`, `/`→`_`, padding removed). URL code param is read non-reactively from `location.hash` to avoid invalidating the `source()` atom on hash changes. Build passes, Audit passed.
+**Files changed**: play/play.view.tree, play/play.view.ts, tasks.json, progress.md
+**Notes**:
+- Share button is `$mol_button_minor` in the `tools /` area, alongside existing preset buttons.
+- URL format: `#!page=play&code=BASE64` — uses hash routing consistent with `$mol_state_arg`.
+- `location.hash` is read directly (not via `$mol_state_arg`) to avoid creating a reactive dependency that would reset user edits.
+- URL-safe base64: `+`→`-`, `/`→`_`, trailing `=` removed. Reversed on decode.
+- UTF-8 handling via `TextEncoder`/`TextDecoder` for Unicode characters in code.

@@ -4,7 +4,24 @@ namespace $.$$ {
 
 		@$mol_mem
 		source( next?: string ) {
-			return next ?? this.preset_code_hello()
+			if ( next !== undefined ) return next
+
+			const hash = location.hash.replace( /^#!?/, '' )
+			const params = new URLSearchParams( hash )
+			const code_param = params.get( 'code' )
+
+			if ( code_param ) {
+				try {
+					const base64 = code_param.replace( /-/g, '+' ).replace( /_/g, '/' )
+					const binary = atob( base64 )
+					const bytes = Uint8Array.from( binary, c => c.charCodeAt( 0 ) )
+					return new TextDecoder().decode( bytes )
+				} catch {
+					// Invalid code param, fall through to default
+				}
+			}
+
+			return this.preset_code_hello()
 		}
 
 		preset_code_hello() {
@@ -61,6 +78,22 @@ namespace $.$$ {
 		@$mol_action
 		preset_todo( next?: any ) {
 			this.source( this.preset_code_todo() )
+		}
+
+		@$mol_action
+		share( next?: any ) {
+			const code = this.source()
+			const bytes = new TextEncoder().encode( code )
+			const binary = Array.from( bytes, b => String.fromCharCode( b ) ).join( '' )
+			const encoded = btoa( binary )
+				.replace( /\+/g, '-' )
+				.replace( /\//g, '_' )
+				.replace( /=+$/, '' )
+
+			const base = location.href.replace( /#.*/, '' )
+			const url = base + '#!page=play&code=' + encoded
+
+			navigator.clipboard?.writeText( url )
 		}
 
 	}
