@@ -277,3 +277,18 @@
 - Transpilation logic lives only in `editor/editor.view.ts` — single source of truth.
 - Editor CSS handles the split-view layout (flex-wrap, 300px basis, grow/shrink).
 - Lesson CSS simplified — only retains Task_section, Actions, Check_success, Check_error styles.
+
+---
+
+### TASK-027: Контент урока 10: Testing (test.ts, $mol_assert)
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added lesson 10 content covering testing — *.test.ts file structure, $mol_test() declaration, $mol_assert_equal (deep structural comparison), $mol_assert_unique, $mol_assert_fail, testing reactive @$mol_mem properties, and file naming conventions. Exercise: create a `$my_testable` component extending `$mol_page` with a `$mol_string` Input bound to `text?` via `<=>` and a `$mol_view` Output displaying `text` via `<=`, demonstrating a clear testable contract. Three progressive hints guide the student. Build passes, Audit passed.
+**Files changed**: guide/guide.view.ts, tasks.json, progress.md
+**Notes**:
+- Explanation covers $mol_test(), $mol_assert_equal, $mol_assert_unique, $mol_assert_fail, testing reactive properties, and file naming.
+- Exercise uses view.tree only (compatible with tree-parsing validator).
+- Follows the same data pattern as lessons 1-9 in the `lessons()` array.
+- Accessible via `#!page=guide&lesson=10`.
+- All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
