@@ -233,3 +233,18 @@
 - Follows the same data pattern as lessons 1-6 in the `lessons()` array.
 - Accessible via `#!page=guide&lesson=7`.
 - All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
+
+---
+
+### TASK-025: Контент урока 8: Navigation ($mol_book2, arg routing)
+**Date**: 2026-03-06
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added lesson 8 content covering navigation — $mol_book2 for multi-page layout, $mol_link for declarative arg-based navigation, `arg *` dictionary syntax for URL parameters, $mol_state_arg for programmatic routing, and the routing pattern combining links with reactive page switching. Exercise: create a `$my_app` extending `$mol_page` with two `$mol_link` components in `tools /` — Home_link (`arg * page \home`) and Settings_link (`arg * page \settings`). Three progressive hints guide the student. Build passes, Audit passed.
+**Files changed**: guide/guide.view.ts, tasks.json, progress.md
+**Notes**:
+- Explanation covers $mol_book2 (pages stacking), $mol_link (arg-based navigation), `arg *` syntax, $mol_state_arg (reactive reading), and the common routing pattern.
+- Exercise uses view.tree only (compatible with tree-parsing validator).
+- Follows the same data pattern as lessons 1-7 in the `lessons()` array.
+- Accessible via `#!page=guide&lesson=8`.
+- All `$`-prefixed identifiers in strings use dynamic `const d = '$'` prefix to prevent MAM dependency resolution.
