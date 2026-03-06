@@ -395,3 +395,17 @@
 - `code()` persists to localStorage on every edit. On lesson load, reads saved code or falls back to `initial_code()`.
 - Reset clears all `bog_docs_code_N` and `bog_docs_done_N` keys via `$mol_state_local.value(key, null)` which calls `localStorage.removeItem(key)`.
 - The `completed_count()` method in guide iterates all lessons and counts those with `bog_docs_done_N` set in localStorage.
+
+---
+
+### TASK-035: SEO — meta tags, OpenGraph, title для каждой страницы
+**Date**: 2026-03-07
+**Agent**: Claude Opus 4.6
+**Status**: done
+**Summary**: Added SEO meta tags to index.html — `<title>`, `<meta name="description">`, OpenGraph tags (og:type, og:title, og:description, og:image, og:site_name), and Twitter Card tags (twitter:card, twitter:title, twitter:description, twitter:image). Created og-image.svg as a branded social sharing image (1200x630 with "$mol" title and "Reactive UI Framework" subtitle on dark background). Implemented dynamic `document.title` per page in app.view.ts — Landing shows "$mol Framework — Reactive UI", Guide shows "Docs — $mol Framework" (with current lesson title), Playground shows "Playground — $mol Framework". Build passes, Audit passed.
+**Files changed**: app/index.html, app/og-image.svg (new), app/app.view.ts, tasks.json, progress.md
+**Notes**:
+- OG image uses SVG format — for production, a PNG version (1200x630) is recommended for broader social media compatibility.
+- `og:image` and `twitter:image` use relative path `og-image.svg` — when deployed, the full URL will resolve based on the hosting domain.
+- Dynamic `title()` override in app.view.ts reads the current spread and returns a page-specific title. Guide page includes the current lesson title from `Guide().title()`.
+- Since this is a SPA, OG/Twitter meta tags in index.html are static defaults. Social media crawlers that don't execute JS will see the default Landing description. Dynamic per-page meta would require server-side rendering or prerendering.

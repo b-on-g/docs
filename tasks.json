@@ -773,7 +773,7 @@
 			"dependencies": [
 				"TASK-006"
 			],
-			"status": "pending"
+			"status": "done"
 		}
 	]
 }
