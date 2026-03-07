@@ -15,7 +15,8 @@ jobs:
 
     - uses: hyoo-ru/mam_build@master2
       with:
-        package: 'bog/docs/app'
+        package: 'bog/docs'
+        modules: "app"
 
     - uses: hyoo-ru/gh-deploy@v4.4.1
       if: github.ref == 'refs/heads/master'
