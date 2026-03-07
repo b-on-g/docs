@@ -22,3 +22,13 @@ jobs:
       if: github.ref == 'refs/heads/master'
       with:
         folder: 'bog/docs/app/-'
+
+    - name: Ensure Pages deploys from gh-pages branch
+      if: github.ref == 'refs/heads/master'
+      run: |
+        gh api repos/${{ github.repository }}/pages \
+          --method PUT \
+          --field source='{"branch":"gh-pages","path":"/"}' \
+          --field build_type=legacy
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
