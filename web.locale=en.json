@@ -1,4 +1,6 @@
 {
+	"$bog_theme_picker_Search_hint": "Just start typing",
+	"$bog_theme_toggle_Anchor_hint": "Cycle through themes",
 	"$mol_book2_catalog_Spread_close_hint": "Close page",
 	"$mol_search_Clear_hint": "Clear",
 	"$mol_search_hint": "Search...",
