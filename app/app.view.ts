@@ -15,6 +15,32 @@ namespace $.$$ {
 			}
 		}
 
+		@$mol_mem
+		override Guide() {
+			const guide = super.Guide()
+			guide.tools = () => [
+				guide.Prev_link(),
+				guide.Progress(),
+				guide.Next_link(),
+				guide.Reset_button(),
+				this.Spread_close(),
+			]
+			return guide
+		}
+
+		@$mol_mem
+		override Play() {
+			const play = super.Play()
+			play.tools = () => [
+				play.Preset_hello(),
+				play.Preset_counter(),
+				play.Preset_todo(),
+				play.Share_btn(),
+				this.Spread_close(),
+			]
+			return play
+		}
+
 		@$mol_action
 		override switch_en(next?: any) {
 			this.$.$mol_locale.lang('en')

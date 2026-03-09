@@ -1,5 +1,5 @@
 $bog_docs_guide $mol_page
-	title \Docs
+	title @ \Docs
 	tools /
 		<= Prev_link $mol_link
 			arg <= prev_arg *
@@ -14,7 +14,7 @@ $bog_docs_guide $mol_page
 		<= Reset_button $mol_button_minor
 			click? <=> reset_progress? null
 			sub /
-				\Reset
+				@ \Reset
 	body /
 		<= Current_lesson $bog_docs_guide_lesson
 			lesson_title <= current_title \
@@ -23,3 +23,4 @@ $bog_docs_guide $mol_page
 			initial_code <= current_initial_code \
 			solution <= current_solution \
 			lesson_id <= current_lesson_id \
+			next_arg <= lesson_next_arg *

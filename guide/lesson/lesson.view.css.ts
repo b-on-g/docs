@@ -36,6 +36,23 @@ namespace $.$$ {
 			},
 		},
 
+		Hints_section: {
+			flex: {
+				direction: 'column',
+			},
+			gap: '0.5rem',
+		},
+
+		Hint_text: {
+			padding: $mol_gap.block,
+			background: {
+				color: '#ffb3001a',
+			},
+			border: {
+				radius: $mol_gap.round,
+			},
+		},
+
 		Actions: {
 			gap: $mol_gap.block,
 			flex: {

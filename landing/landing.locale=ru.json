@@ -1,0 +1,18 @@
+{
+	"$bog_docs_landing_title": "Фреймворк $mol",
+	"$bog_docs_landing_Hero_title_sub": "Фреймворк $mol",
+	"$bog_docs_landing_Hero_subtitle_sub": "Реактивный, компонуемый и легковесный UI-фреймворк",
+	"$bog_docs_landing_Get_started_sub": "Начать",
+	"$bog_docs_landing_Play_link_sub": "Песочница",
+	"$bog_docs_landing_Prop_reactive_title_sub": "Реактивный",
+	"$bog_docs_landing_Prop_reactive_text_sub": "Автоматическое отслеживание зависимостей через @$mol_mem. Без ручных подписок, без useEffect — изменения состояния распространяются мгновенно.",
+	"$bog_docs_landing_Prop_composable_title_sub": "Компонуемый",
+	"$bog_docs_landing_Prop_composable_text_sub": "Декларативный синтаксис view.tree для создания UI. Компоненты вкладываются естественно с однонаправленными и двунаправленными привязками.",
+	"$bog_docs_landing_Prop_lightweight_title_sub": "Легковесный",
+	"$bog_docs_landing_Prop_lightweight_text_sub": "~100КБ бандл с роутингом, управлением состоянием и UI-компонентами. В 3 раза меньше React+Redux.",
+	"$bog_docs_landing_Demo_title_sub": "Попробуйте вживую",
+	"$bog_docs_landing_Demo_subtitle_sub": "Редактируйте view.tree код и смотрите результат транспиляции мгновенно",
+	"$bog_docs_landing_Ecosystem_title_sub": "Экосистема",
+	"$bog_docs_landing_Link_docs_sub": "Документация",
+	"$bog_docs_landing_Link_community_sub": "Сообщество"
+}

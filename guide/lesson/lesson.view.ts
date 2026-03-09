@@ -61,6 +61,46 @@ namespace $.$$ {
 			return null
 		}
 
+		@$mol_mem
+		hints_count( next?: number ) {
+			return next ?? 0
+		}
+
+		@$mol_mem
+		override hints_shown() {
+			const count = this.hints_count()
+			if ( count === 0 ) return []
+			const hints = this.hints()
+			const shown = [] as $mol_view[]
+			for ( let i = 0; i < Math.min( count, hints.length ); i++ ) {
+				shown.push( this.Hint_text( i ) )
+			}
+			return shown
+		}
+
+		override hint_text( index: number ) {
+			return this.hints()[ index ] ?? ''
+		}
+
+		@$mol_action
+		override show_hint( next?: any ) {
+			const hints = this.hints()
+			const current = this.hints_count()
+			if ( current < hints.length ) {
+				this.hints_count( current + 1 )
+			}
+			return null
+		}
+
+		@$mol_action
+		override show_solution( next?: any ) {
+			const solution = this.solution()
+			if ( solution ) {
+				this.code( solution )
+			}
+			return null
+		}
+
 		trees_equal( a: $mol_tree2, b: $mol_tree2 ): boolean {
 			if ( a.type !== b.type ) return false
 			if ( a.value !== b.value ) return false

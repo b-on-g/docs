@@ -80,6 +80,16 @@ namespace $.$$ {
 			this.source( this.preset_code_todo() )
 		}
 
+		@$mol_mem
+		share_copied( next?: boolean ) {
+			return next ?? false
+		}
+
+		@$mol_mem
+		override share_title() {
+			return this.share_copied() ? 'Copied!' : 'Share'
+		}
+
 		@$mol_action
 		share( next?: any ) {
 			const code = this.source()
@@ -94,6 +104,9 @@ namespace $.$$ {
 			const url = base + '#!page=play&code=' + encoded
 
 			navigator.clipboard?.writeText( url )
+
+			this.share_copied( true )
+			setTimeout( () => this.share_copied( false ), 2000 )
 		}
 
 	}
