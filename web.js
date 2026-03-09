@@ -12951,7 +12951,8 @@ var $;
                 const source = this.source();
                 if (!source.trim())
                     return '';
-                const tree = this.$.$mol_tree2_from_string(source, 'editor.view.tree');
+                const normalized = source.endsWith('\n') ? source : source + '\n';
+                const tree = this.$.$mol_tree2_from_string(normalized, 'editor.view.tree');
                 const js_tree = this.$.$mol_view_tree2_to_js(tree);
                 const js_text = this.$.$mol_tree2_js_to_text(js_tree);
                 return this.$.$mol_tree2_text_to_string(js_text);
@@ -14033,9 +14034,9 @@ var $;
             }
             check(next) {
                 try {
-                    const code = this.code().trim();
-                    const solution = this.solution().trim();
-                    if (!solution) {
+                    const code = this.code().trim() + '\n';
+                    const solution = this.solution().trim() + '\n';
+                    if (!solution.trim()) {
                         this.check_status('error');
                         return null;
                     }
