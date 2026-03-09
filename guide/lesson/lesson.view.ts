@@ -38,10 +38,10 @@ namespace $.$$ {
 		@$mol_action
 		override check( next?: any ) {
 			try {
-				const code = this.code().trim()
-				const solution = this.solution().trim()
+				const code = this.code().trim() + '\n'
+				const solution = this.solution().trim() + '\n'
 
-				if ( !solution ) {
+				if ( !solution.trim() ) {
 					this.check_status( 'error' )
 					return null
 				}
