@@ -5226,55 +5226,55 @@ declare namespace $ {
 		,
 		ReturnType< $mol_text['text'] >
 	>
-	type $mol_button_major__click_bog_docs_guide_lesson_4 = $mol_type_enforce<
+	type $mol_view__sub_bog_docs_guide_lesson_4 = $mol_type_enforce<
+		ReturnType< $bog_docs_guide_lesson['hints_shown'] >
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_button_major__click_bog_docs_guide_lesson_5 = $mol_type_enforce<
 		ReturnType< $bog_docs_guide_lesson['check'] >
 		,
 		ReturnType< $mol_button_major['click'] >
 	>
-	type $mol_button_major__sub_bog_docs_guide_lesson_5 = $mol_type_enforce<
+	type $mol_button_major__sub_bog_docs_guide_lesson_6 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_major['sub'] >
 	>
-	type $mol_view__sub_bog_docs_guide_lesson_6 = $mol_type_enforce<
+	type $mol_view__sub_bog_docs_guide_lesson_7 = $mol_type_enforce<
 		ReturnType< $bog_docs_guide_lesson['check_result_sub'] >
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_button_minor__click_bog_docs_guide_lesson_7 = $mol_type_enforce<
+	type $mol_button_minor__click_bog_docs_guide_lesson_8 = $mol_type_enforce<
 		ReturnType< $bog_docs_guide_lesson['show_hint'] >
 		,
 		ReturnType< $mol_button_minor['click'] >
 	>
-	type $mol_button_minor__sub_bog_docs_guide_lesson_8 = $mol_type_enforce<
+	type $mol_button_minor__sub_bog_docs_guide_lesson_9 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $mol_button_minor__click_bog_docs_guide_lesson_9 = $mol_type_enforce<
+	type $mol_button_minor__click_bog_docs_guide_lesson_10 = $mol_type_enforce<
 		ReturnType< $bog_docs_guide_lesson['show_solution'] >
 		,
 		ReturnType< $mol_button_minor['click'] >
 	>
-	type $mol_button_minor__sub_bog_docs_guide_lesson_10 = $mol_type_enforce<
+	type $mol_button_minor__sub_bog_docs_guide_lesson_11 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_button_minor['sub'] >
 	>
-	type $mol_link__arg_bog_docs_guide_lesson_11 = $mol_type_enforce<
+	type $mol_link__arg_bog_docs_guide_lesson_12 = $mol_type_enforce<
 		ReturnType< $bog_docs_guide_lesson['next_arg'] >
 		,
 		ReturnType< $mol_link['arg'] >
 	>
-	type $mol_link__sub_bog_docs_guide_lesson_12 = $mol_type_enforce<
+	type $mol_link__sub_bog_docs_guide_lesson_13 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_link['sub'] >
-	>
-	type $mol_view__sub_bog_docs_guide_lesson_13 = $mol_type_enforce<
-		readonly(any)[]
-		,
-		ReturnType< $mol_view['sub'] >
 	>
 	type $mol_view__sub_bog_docs_guide_lesson_14 = $mol_type_enforce<
 		readonly(any)[]
@@ -5286,7 +5286,17 @@ declare namespace $ {
 		,
 		ReturnType< $mol_view['sub'] >
 	>
-	type $mol_view__sub_bog_docs_guide_lesson_16 = $mol_type_enforce<
+	type $mol_text__text_bog_docs_guide_lesson_16 = $mol_type_enforce<
+		ReturnType< $bog_docs_guide_lesson['hint_text'] >
+		,
+		ReturnType< $mol_text['text'] >
+	>
+	type $mol_view__sub_bog_docs_guide_lesson_17 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_view__sub_bog_docs_guide_lesson_18 = $mol_type_enforce<
 		readonly(any)[]
 		,
 		ReturnType< $mol_view['sub'] >
@@ -5299,6 +5309,8 @@ declare namespace $ {
 		Code_editor( ): $bog_docs_editor
 		task_text( ): string
 		Task_description( ): $mol_text
+		hints_shown( ): readonly(any)[]
+		Hints_section( ): $mol_view
 		check( next?: any ): any
 		Check_button( ): $mol_button_major
 		check_result_sub( ): readonly(any)[]
@@ -5311,12 +5323,14 @@ declare namespace $ {
 		Next_button( ): $mol_link
 		Actions( ): $mol_view
 		Task_section( ): $mol_view
+		hint_text( id: any): string
 		title( ): ReturnType< $bog_docs_guide_lesson['lesson_title'] >
 		lesson_id( ): string
 		initial_code( ): string
 		solution( ): string
 		hints( ): readonly(string)[]
 		body( ): readonly(any)[]
+		Hint_text( id: any): $mol_text
 		Check_success( ): $mol_view
 		Check_error( ): $mol_view
 	}
@@ -5325,16 +5339,21 @@ declare namespace $ {
 
 //# sourceMappingURL=lesson.view.tree.d.ts.map
 declare namespace $.$$ {
+}
+
+declare namespace $.$$ {
     class $bog_docs_guide_lesson extends $.$bog_docs_guide_lesson {
         code(next?: string): string;
         check_status(next?: string): string;
         check_result_sub(): $mol_view[];
         check(next?: any): null;
+        hints_count(next?: number): number;
+        hints_shown(): $mol_view[];
+        hint_text(index: number): string;
+        show_hint(next?: any): null;
+        show_solution(next?: any): null;
         trees_equal(a: $mol_tree2, b: $mol_tree2): boolean;
     }
-}
-
-declare namespace $.$$ {
 }
 
 declare namespace $ {
@@ -5404,6 +5423,11 @@ declare namespace $ {
 		,
 		ReturnType< $bog_docs_guide_lesson['lesson_id'] >
 	>
+	type $bog_docs_guide_lesson__next_arg_bog_docs_guide_14 = $mol_type_enforce<
+		ReturnType< $bog_docs_guide['lesson_next_arg'] >
+		,
+		ReturnType< $bog_docs_guide_lesson['next_arg'] >
+	>
 	export class $bog_docs_guide extends $mol_page {
 		prev_arg( ): Record<string, any>
 		Prev_link( ): $mol_link
@@ -5419,6 +5443,7 @@ declare namespace $ {
 		current_initial_code( ): string
 		current_solution( ): string
 		current_lesson_id( ): string
+		lesson_next_arg( ): Record<string, any>
 		Current_lesson( ): $bog_docs_guide_lesson
 		title( ): string
 		tools( ): readonly(any)[]
@@ -5453,6 +5478,9 @@ declare namespace $.$$ {
             lesson: string;
         };
         next_arg(): {
+            lesson: string;
+        };
+        lesson_next_arg(): {
             lesson: string;
         };
         lessons(): {
@@ -5502,7 +5530,7 @@ declare namespace $ {
 		ReturnType< $mol_button_minor['click'] >
 	>
 	type $mol_button_minor__title_bog_docs_play_7 = $mol_type_enforce<
-		string
+		ReturnType< $bog_docs_play['share_title'] >
 		,
 		ReturnType< $mol_button_minor['title'] >
 	>
@@ -5523,6 +5551,7 @@ declare namespace $ {
 		Preset_counter( ): $mol_button_minor
 		preset_todo( next?: any ): any
 		Preset_todo( ): $mol_button_minor
+		share_title( ): string
 		share( next?: any ): any
 		Share_btn( ): $mol_button_minor
 		source( next?: string ): string
@@ -5544,6 +5573,8 @@ declare namespace $.$$ {
         preset_hello(next?: any): void;
         preset_counter(next?: any): void;
         preset_todo(next?: any): void;
+        share_copied(next?: boolean): boolean;
+        share_title(): "Copied!" | "Share";
         share(next?: any): void;
     }
 }
@@ -5610,16 +5641,6 @@ declare namespace $ {
 		,
 		ReturnType< $bog_docs_landing['tools'] >
 	>
-	type $bog_docs_guide__tools_bog_docs_app_13 = $mol_type_enforce<
-		readonly(any)[]
-		,
-		ReturnType< $bog_docs_guide['tools'] >
-	>
-	type $bog_docs_play__tools_bog_docs_app_14 = $mol_type_enforce<
-		readonly(any)[]
-		,
-		ReturnType< $bog_docs_play['tools'] >
-	>
 	export class $bog_docs_app extends $mol_book2_catalog {
 		Theme_auto( ): $bog_theme_auto
 		Theme_toggle( ): $bog_theme_toggle
@@ -5650,6 +5671,8 @@ declare namespace $.$$ {
     class $bog_docs_app extends $.$bog_docs_app {
         spread(next?: string): string;
         title(): string;
+        Guide(): $.$bog_docs_guide;
+        Play(): $.$bog_docs_play;
         switch_en(next?: any): void;
         switch_ru(next?: any): void;
     }
